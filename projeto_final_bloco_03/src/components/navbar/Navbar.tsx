@@ -1,16 +1,19 @@
-import { MagnifyingGlassIcon, PlusIcon, ShoppingCartIcon, UserIcon } from "@phosphor-icons/react"
+import { useState } from "react"
+import { MagnifyingGlassIcon, PlusIcon, ShoppingCartIcon, UserIcon, ListIcon } from "@phosphor-icons/react"
+import { Link } from "react-router-dom"
 
 function Navbar() {
+  const [menuAberto, setMenuAberto] = useState(false)
+
   return (
     <>
       <div className="w-full bg-indigo-950 px-6 py-3">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2 text-white font-bold text-xl">
+          <Link to="/home" className="flex items-center gap-2 text-white font-bold text-xl">
             <PlusIcon size={28} weight="bold" className="text-red-500" />
             <span>FARMÁCIA</span>
-          </div>
+          </Link>
 
-          {/* input + ícone dentro do MESMO container relative */}
           <div className="relative w-80 hidden md:block">
             <input
               type="text"
@@ -23,15 +26,37 @@ function Navbar() {
             />
           </div>
 
-          {/* links + ícones, tudo num único bloco */}
           <div className="hidden md:flex items-center gap-6 text-white">
-            Categoria 
-            Cadastrar Categoria 
+            <Link to="/categorias" className="hover:underline">Categoria</Link>
+            <Link to="/cadastrarcategoria" className="hover:underline">Cadastrar Categoria</Link>
+            <UserIcon size={26} />
+            <ShoppingCartIcon size={26} />
+          </div>
+
+          <button
+            className="md:hidden text-white"
+            onClick={() => setMenuAberto(!menuAberto)}
+          >
+            <ListIcon size={28} />
+          </button>
+        </div>
+      </div>
+
+      {menuAberto && (
+        <div className="md:hidden flex flex-col gap-3 bg-indigo-950 text-white px-6 py-4">
+          <input
+            type="text"
+            placeholder="Procurar"
+            className="rounded px-4 py-1 bg-white text-slate-700"
+          />
+          <Link to="/categorias" className="hover:underline">Categoria</Link>
+          <Link to="/cadastrarcategoria" className="hover:underline">Cadastrar Categoria</Link>
+          <div className="flex gap-4">
             <UserIcon size={26} />
             <ShoppingCartIcon size={26} />
           </div>
         </div>
-      </div>
+      )}
     </>
   )
 }
