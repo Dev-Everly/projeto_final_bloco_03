@@ -1,7 +1,7 @@
 import type Categoria from "./Categoria";
 
 export default interface Produto {
-  id: number;
+  id?: number;
   nome: string;
   preco: number;
   foto: string;
