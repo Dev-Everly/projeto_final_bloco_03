@@ -27,7 +27,7 @@ function Navbar() {
           </div>
 
           <div className="hidden md:flex items-center gap-6 text-white">
-            <Link to="/categorias" className="hover:underline">Categoria</Link>
+            <Link to="/categorias" className="hover:underline">Categorias</Link>
             <Link to="/cadastrarcategoria" className="hover:underline">Cadastrar Categoria</Link>
             <UserIcon size={26} />
             <ShoppingCartIcon size={26} />
@@ -49,7 +49,7 @@ function Navbar() {
             placeholder="Procurar"
             className="rounded px-4 py-1 bg-white text-slate-700"
           />
-          <Link to="/categorias" className="hover:underline">Categoria</Link>
+          <Link to="/categorias" className="hover:underline">Categorias</Link>
           <Link to="/cadastrarcategoria" className="hover:underline">Cadastrar Categoria</Link>
           <div className="flex gap-4">
             <UserIcon size={26} />
